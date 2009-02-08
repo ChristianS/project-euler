@@ -18,7 +18,8 @@ end
 # reverse order for correct exclusion and faster computation
 divisors.reverse!
 
-for k in -divisors.length..-1
+# exclude not needed divisors
+for k in 0..divisors.length-1
   if notneeded.include?(divisors[k])
     divisors.delete_at(k)
   end
