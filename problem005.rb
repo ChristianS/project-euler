@@ -15,7 +15,7 @@ for i in divisors
   end
 end
 
-# reverse order for correct exclusion and faster
+# reverse order for correct exclusion and faster computation
 divisors.reverse!
 
 for k in -divisors.length..-1
@@ -24,15 +24,13 @@ for k in -divisors.length..-1
   end
 end
 
-puts divisors
-
 while !found do
   found = true
   result += divisors[0] #take steps of biggest divisor
   divisors.each do |divisor|
     if !(result % divisor == 0)
       found = false
-      break #faster
+      break #faster: break at first fail
     end
   end
 end
