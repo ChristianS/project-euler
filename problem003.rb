@@ -5,14 +5,11 @@ require 'mathn'
 
 primes = Prime.new
 number = 600851475143
-
-prime = primes.next
+prime = 0
 
 while prime < number do
-  if number % prime == 0
-    number = number / prime
-  end
   prime = primes.next
+  number /= prime if (number % prime).zero?
 end
 
 puts prime
